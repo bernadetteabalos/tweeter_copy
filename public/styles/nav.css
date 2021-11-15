@@ -1,0 +1,30 @@
+nav {
+  background-color: #4056A1;
+  color: #FFFFFF;
+  height: 120px;
+  display: flex;
+  align-items: center;
+}
+
+div.homeTitle {
+  margin-left: 1.5em;
+  font-family: 'Bungee', cursive;
+}
+
+div.newTweetHere {
+  margin-left: auto; 
+  margin-right: 1.5em;
+  
+}
+
+p.tweetTitle{
+  padding: 0em;
+  margin-bottom: 5px;
+}
+
+.fa-angles-down {
+  display: flex;
+  justify-content: center; 
+  color: red;
+}
+
