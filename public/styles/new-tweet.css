@@ -1,0 +1,40 @@
+textarea {
+resize: none;
+white-space: nowrap;
+border: none;
+border-bottom: groove;
+border-color: darkgray;
+width: 100%;
+background-color: #f4f1ec;
+height: 2em;
+}
+
+input:focus { 
+  outline: none;
+}
+
+textarea:focus { 
+  outline: none;
+}
+
+button {
+  overflow: visible;
+  font-family: 'Bungee';
+  background-color: #4056a1;
+  color: white;
+  border: none;
+}
+
+div.submission {
+  display:flex;
+}
+
+.counter {
+  font-family:'Bungee', cursive;
+  margin-left:auto;
+}
+
+section {
+  width: 100%;
+}
+
