@@ -24,3 +24,15 @@ html {
 /*
  * Additional CSS can be defined below or in other CSS files, as per instructions
  */
+
+ main {
+   width: 91%;
+   margin-left: 3em;
+   margin-right: 3em;
+   justify-content: center; 
+   display:flex;
+   align-items: center;
+   flex-direction: column;
+   background-color: #f4f1ec;
+   
+ }
