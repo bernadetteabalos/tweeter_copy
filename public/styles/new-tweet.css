@@ -27,6 +27,7 @@ button {
 
 div.submission {
   display:flex;
+  overflow:auto;
 }
 
 .counter {
@@ -34,7 +35,12 @@ div.submission {
   margin-left:auto;
 }
 
+.charCountRed {
+  color: red;
+}
+
 section {
   width: 100%;
+  overflow: auto; 
 }
 
