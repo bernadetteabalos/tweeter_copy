@@ -58,6 +58,10 @@
     
     <main class="container">
       <section class="new-tweet">
+        <div class='error'>
+          <p id="long"><i class="fas fa-exclamation-triangle"></i>Maximum characters reached. <i class="fas fa-exclamation-triangle"></i></p>
+          <p id="blank"><i class="fas fa-exclamation-triangle"></i>Please insert a tweet.<i class="fas fa-exclamation-triangle"></i></p>
+        </div>
         <h2>Compose Tweet</h2>
         <form method="POST" action="/tweets">
           <!-- <label for="tweet-text">What are you humming about?</label> --> 

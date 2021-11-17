@@ -4,32 +4,8 @@
  * Reminder: Use (and do all your DOM work in) jQuery's document ready function
 */
 
-// Test / driver code (temporary). Eventually will get this from the server.
-const tweetData = [
-  {
-    "user": {
-      "name": "Newton",
-      "avatars": "https://i.imgur.com/73hZDYK.png"
-      ,
-      "handle": "@SirIsaac"
-    },
-    "content": {
-      "text": "If I have seen further it is by standing on the shoulders of giants"
-    },
-    "created_at": 1461116232227
-  },
-  {
-    "user": {
-      "name": "Descartes",
-      "avatars": "https://i.imgur.com/nlhLi3I.png",
-      "handle": "@rd" },
-    "content": {
-      "text": "Je pense , donc je suis"
-    },
-    "created_at": 1461113959088
-  }
-]
 
+//To show the time fxn
 const locale = function(number, index, totalSec) {
   // number: the time ago / time in number;
   // index: the index of array below;
@@ -55,25 +31,66 @@ const locale = function(number, index, totalSec) {
 timeago.register('tweetTime', locale);
 
 $(function() {
+  //this is to load tweets on the page
+  const loadTweets = function() {
+    $.ajax({
+      url: '/tweets',
+      type: 'GET',
+      dataType: 'json',
+      success: function(tweetData) {
+        renderTweets(tweetData);
+      }
+    })
+  }
+
+  //safe text
+  const escape = function (str) {
+    let div = document.createElement("div");
+    div.appendChild(document.createTextNode(str));
+    return div.innerHTML;
+  };
+
   const form = $(".new-tweet form")
   form.on('submit', (event) => {
     event.preventDefault();
+    
+    
+    $('button').click(function() {
+      let tweetText = $('textarea').val().replace(/^\s+|\s+$/g, '');
 
-    $.ajax({
-      type: "POST",
-      url: form.attr('action'),
-      data: form.serialize(),
-      success: function() {
+      if (tweetText.length > 140) {
+        $("#blank").hide();
+        $(".error").show();
+        $("#long").show();
+      } else if (tweetText === "") {
+        $("#long").hide();
+        $(".error").show();
+        $("#blank").show();
+      } else {
+        //this is to submit new tweet
+        $.ajax({
+          type: "POST",
+          url: '/tweets',
+          data: form.serialize(),
+          success: function() {
+            $("#blank").hide();
+            $(".error").hide();
+            $('textarea').val('');
+            $(".counter").text("140");
+            loadTweets();
+          }
+        })
+        
         
       }
     })
-
   })
   
   const renderTweets = function(tweets) {
+    $('#main-container').empty();
     for (let tweetObj of tweets) {
       const tweetElement = createTweetElement(tweetObj);
-      $('#main-container').append(tweetElement);
+      $('#main-container').prepend(tweetElement);
     }
   }
 
@@ -85,7 +102,7 @@ $(function() {
     <h3 class="handle">${data.user.handle}</h3>
     
     </header>
-    <p class="tweetBody">${data.content.text}</p>
+    <p class="tweetBody">${escape(data.content.text)}</p>
     <footer>
     <p class="date">
     ${time}
@@ -100,9 +117,9 @@ $(function() {
     
     return tweetElement;
   }
-  
-  renderTweets(tweetData);
-  
+
+  loadTweets()
+  //if i remove this, the tweets disappear everytime i refresh
 });
 
 

@@ -44,4 +44,17 @@ section {
   overflow: auto; 
 }
 
+.error {
+  display: none;
+  color: red;
+  border-style: solid;
+  margin-top: 1em;
+
+}
+
+.error p {
+  display: none;
+  margin-left: 1em;
+}
+
 
