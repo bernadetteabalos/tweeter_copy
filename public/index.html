@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="/styles/nav.css" type="text/css" />
     <link rel="stylesheet" href="/styles/header.css" type="text/css" />
     <link rel="stylesheet" href="/styles/new-tweet.css" type="text/css" />
+    <link rel="stylesheet" href="/styles/main-tweet.css" type="text/css" />
 
     <!-- External JS -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
@@ -26,7 +27,7 @@
     <!-- App JS -->
     <script type="text/javascript" src="/scripts/client.js"></script>
     <script type="text/javascript" src="/scripts/composer-char-counter.js"></script>
-    
+
   </head>
 
   <body>
@@ -65,6 +66,26 @@
             <output name="counter" class="counter" for="tweet-text">140</output>
           </div>
         </form>
+      </section>
+      <section id="main-container">
+        <article class="tweet">
+          <header>
+            <h3 class="user">Mary Sue</h3>
+            <h3 class="handle">@MarySoo</h3>
+
+          </header>
+          <p class="tweetBody">This is a test tweet.</p>
+          <footer>
+            <p class="date">
+              10 days ago
+            </p>
+            <div class="icons">
+            <i class="fa-solid fa-flag"></i>
+            <i class="fa-solid fa-retweet"></i>
+            <i class="fa-solid fa-heart"></i>
+          </div>
+          </footer>
+        </article>
       </section>
     </main>
   </body>
