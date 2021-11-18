@@ -21,3 +21,9 @@ Tweeter functions as a single page application, and allows its users to load and
 
 - Express
 - Node 5.10.x or above
+
+## Screenshots / Demo
+
+!["Desktop View"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_2.png?raw=true)
+!["Smaller Screen View"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_1.png?raw=true)
+!["Tweeter Functional Demo"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_BernadetteDemo.gif?raw=true)
