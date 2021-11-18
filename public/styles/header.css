@@ -1,6 +1,6 @@
 header {
   background-color: #fa8b87;
-background-image: url("https://www.transparenttextures.com/patterns/wavecut.png");
+  background-image: url("https://www.transparenttextures.com/patterns/wavecut.png");
 /* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
   display: flex;
   position: relative;

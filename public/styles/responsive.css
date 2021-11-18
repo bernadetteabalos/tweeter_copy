@@ -1,0 +1,32 @@
+@media only screen and (min-width: 768px) {
+
+}
+
+@media only screen and (min-width: 1024px) {
+  body {
+    display: flex;
+    flex-direction: row;
+    align-items:flex-start;
+    justify-content: center;
+    margin-top: 8em;
+  }
+
+  #userProfile {
+    width: 30%;
+    height: auto;
+    
+  }
+
+  img.pfp {
+    margin-top: 1em;
+  }
+
+  div.name h2 {
+    margin-bottom: 1em;
+  }
+
+  main.container {
+    width: 50%;
+    margin-left: 4em;
+  }
+}

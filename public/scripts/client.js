@@ -98,6 +98,7 @@ $(function() {
     let time = timeago.format(data.created_at, 'tweetTime');
     const tweetElement = `<article class="tweet">
     <header>
+    <img src=${data.user.avatars} />
     <h3 class="user">${data.user.name}</h3>
     <h3 class="handle">${data.user.handle}</h3>
     

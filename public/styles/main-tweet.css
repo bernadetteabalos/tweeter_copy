@@ -16,9 +16,14 @@ article.tweet header {
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
-  align-items:flex-start;
+  align-items: center;
   height: 4em;
   width:  95%;
+}
+
+article.tweet header img {
+  height: 50%;
+  margin-right: 0.5em;
 }
 
 h3.user {
