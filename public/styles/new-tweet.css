@@ -25,6 +25,14 @@ button {
   border: none;
 }
 
+#submitTweet:hover {
+  background-color:#98aced;
+}
+#submitTweet:active {
+  background-color: salmon;
+  transform: translateY(1px);
+}
+
 div.submission {
   display:flex;
   overflow:auto;

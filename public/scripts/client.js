@@ -5,7 +5,7 @@
 */
 
 
-//To show the time fxn
+//From TimeAgo example -- functions to show time
 const locale = function(number, index, totalSec) {
   // number: the time ago / time in number;
   // index: the index of array below;
@@ -30,7 +30,15 @@ const locale = function(number, index, totalSec) {
 
 timeago.register('tweetTime', locale);
 
+//Main function body -- what to run after page loads
 $(function() {
+  //Compose Tweet button reveal
+  $("#composeTweet").click(function() {
+    $(".new-tweet").toggle("slow", function() {
+      $('textarea').focus();
+    });
+  });
+
   //this is to load tweets on the page
   const loadTweets = function() {
     $.ajax({
@@ -40,22 +48,21 @@ $(function() {
       success: function(tweetData) {
         renderTweets(tweetData);
       }
-    })
-  }
+    });
+  };
 
   //safe text
-  const escape = function (str) {
+  const escape = function(str) {
     let div = document.createElement("div");
     div.appendChild(document.createTextNode(str));
     return div.innerHTML;
   };
-
-  const form = $(".new-tweet form")
+  //To prevent page refresh upon form submission
+  const form = $(".new-tweet form");
   form.on('submit', (event) => {
     event.preventDefault();
-    
-    
-    $('button').click(function() {
+  //Upon button click -- animations to show and hide error messages.
+    $("#submitTweet").click(function() {
       let tweetText = $('textarea').val().replace(/^\s+|\s+$/g, '');
 
       if (tweetText.length > 140) {
@@ -67,7 +74,7 @@ $(function() {
         $(".error").show();
         $("#blank").show();
       } else {
-        //this is to submit new tweet
+        //this is the ajax POST request to submit new tweet
         $.ajax({
           type: "POST",
           url: '/tweets',
@@ -75,25 +82,27 @@ $(function() {
           success: function() {
             $("#blank").hide();
             $(".error").hide();
-            $('textarea').val('');
-            $(".counter").text("140");
+            $('textarea').val(''); // resets text area to blank
+            $(".counter").text("140"); // resets counter to 140
             loadTweets();
           }
-        })
-        
-        
+        });
       }
-    })
-  })
-  
+      $("#myform").unbind('submit'); // solution to prevent multiple form submissions
+      return false;
+    });
+  });
+
+  //Function to render tweets on page
   const renderTweets = function(tweets) {
     $('#main-container').empty();
     for (let tweetObj of tweets) {
       const tweetElement = createTweetElement(tweetObj);
       $('#main-container').prepend(tweetElement);
     }
-  }
+  };
 
+  //Function to create new tweet element
   const createTweetElement = (data) => {
     let time = timeago.format(data.created_at, 'tweetTime');
     const tweetElement = `<article class="tweet">
@@ -117,10 +126,9 @@ $(function() {
     </article>`;
     
     return tweetElement;
-  }
+  };
 
-  loadTweets()
-  //if i remove this, the tweets disappear everytime i refresh
+  loadTweets();
 });
 
 

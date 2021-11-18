@@ -1,8 +1,12 @@
 @media only screen and (min-width: 768px) {
-
+  
 }
 
 @media only screen and (min-width: 1024px) {
+  nav {
+    background-color: #4056A1;
+  }
+  
   body {
     display: flex;
     flex-direction: row;

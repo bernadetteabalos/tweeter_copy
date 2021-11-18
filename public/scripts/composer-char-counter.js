@@ -4,13 +4,13 @@ $(document).ready(function() {
     const charLimit = 140;
     let charCount = charLimit - $(this).val().length;
     const counter = $(this).closest(".new-tweet").find('.counter');
-    counter.text(charCount);
+    counter.text(charCount); //jquery .text method
 
-    if(charCount < 0) {
-      counter.addClass('charCountRed');
+    if (charCount < 0) {
+      counter.addClass('charCountRed'); //adds a class to make text red if negative number
     } else {
-      counter.removeClass('charCountRed');
+      counter.removeClass('charCountRed'); //alternatively, removes class when no longer negative
     }
 
-  })
+  });
 });
