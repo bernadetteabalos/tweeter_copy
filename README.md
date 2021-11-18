@@ -24,6 +24,9 @@ Tweeter functions as a single page application, and allows its users to load and
 
 ## Screenshots / Demo
 
+Desktop View
 !["Desktop View"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_2.png?raw=true)
+Mobile View
 !["Smaller Screen View"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_1.png?raw=true)
+Demo
 !["Tweeter Functional Demo"](https://github.com/bernadetteabalos/tweeter_copy/blob/master/docs/Tweeter_BernadetteDemo.gif?raw=true)
